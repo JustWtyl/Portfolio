@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTYK Portfolio</title>
+    <style>
+html {
+    scroll-behavior: smooth;
+}
+
+ body {
+margin: 0;
+padding: 0;
+background-color: #fdfdfd;
+display: flex;
+flex-direction: column;
+align-items: center;
+font-family: "Tahoma", "Verdana", sans-serif;
+color: #000;
+}
+
+     a {
+        color: #ab0327;
+        text-decoration: none;
+        font-weight: bold;
+     }
+
+     p {
+        text-align: justify;
+     }
+
+/* MENU NA GÓRZE  */
+header 
+{
+position: relative;
+width: 100%;
+max-width: 900px;
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+.menu-wrapper 
+{
+position: relative;
+width: 100%;
+}
+
+.menu-bg-img 
+{
+ width: 100%;
+display: block;
+ }
+
+        
+.mobile-nav 
+{
+    display: none;
+}
+
+.nav-trigger 
+{
+position: absolute;
+text-indent: -9999px;
+cursor: pointer;
+}
+
+        
+.trigger-digital 
+{  
+height: 60px;
+width: 200px;
+top: 60%; 
+left: 10%; 
+}
+                
+  .trigger-paint 
+{ 
+ height: 60px;
+ width: 200px;
+top: 60%; 
+left: 65%; 
+}
+
+        
+.trigger-social 
+{
+height: 65px;
+width: 65px;
+top: 12%;
+right: 4%;
+}
+
+  /* STRZALKA DO PRZENIESIENIA */
+.back-to-top 
+{
+position: fixed;
+left: 30px;
+top: 50%;
+transform: translateY(-50%);
+z-index: 2000;
+cursor: pointer;
+transition: transform 0.3s;
+text-decoration: none;
+}
+
+.back-to-top:hover {
+transform: translateY(-50%) scale(1.2);
+}
+
+   /* STRZALKA */
+.arrow-icon {
+width: 40px;
+height: 60px;
+background-color: #f28da8; 
+clip-path: polygon(50% 0%, 0% 40%, 30% 40%, 30% 100%, 70% 100%, 70% 40%, 100% 40%);
+display: block;
+}
+
+.sekcja-naglowek-graficzny {
+ display: block;
+ margin: 40px auto 20px auto;
+ max-width: 100%; 
+ height: auto;
+ scroll-margin-top: 40px; 
+}
+
+/* TŁA I GALERIA */
+section {
+width: 95%;
+max-width: 850px;
+scroll-margin-top: 10px; 
+}
+
+.gallery-block {
+background-image: url('t%C5%82a.png'); 
+background-size: 100% 100%;
+background-repeat: no-repeat;
+padding: 50px 40px; 
+display: grid;
+grid-template-columns: 1fr 1fr;
+ gap: 40px;
+ margin-bottom: 40px; 
+}
+.work-frame 
+{
+background: white;
+padding: 10px 10px 40px 10px;
+box-shadow: 5px 10px 20px rgba(0,0,0,0.1);
+transform: rotate(-1deg);
+cursor: pointer;   /*SUGERUJE KLIKNIECIE */
+transition: transform 0.2s ease;
+ }
+
+.work-frame:nth-child(even) 
+{
+transform: rotate(1.5deg);
+ }
+
+.work-frame:hover {     /* RUCH RAMKI PO KLIKNIECIU*/
+transform: scale(1.02) rotate(0deg);
+}
+
+        .work-frame img 
+{
+ width: 100%;
+height: auto;
+display: block;
+ }
+
+/* Stopka */
+footer 
+{
+width: 95%;
+max-width: 850px;
+margin: 40px 0 100px 0;
+ scroll-margin-top: 40px;
+}
+
+.footer-img {
+width: 100%;
+height: auto;
+}
+.duzepudelko {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.85);
+ display: flex;
+ flex-direction: column;
+justify-content: center;
+ align-items: center;
+ z-index: 3000;
+            
+            
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+          /* Animacja do otwierania zdjec!!! */
+.duzepudelko.aktywne {
+opacity: 1;
+ pointer-events: auto;
+ }
+    .duzepudelko p {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
+}
+
+    .duzepudelko p:hover {
+        color: #f28da8;
+    }
+
+
+        .duzepudelko img {
+    max-width: 90%;
+    max-height: 80%;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    border: 4px solid white;
+    background-color: white;
+    box-sizing: border-box;
+    }
+
+        /* RWD */
+     @media (max-width: 768px) {
+    .mobile-nav {
+    display: none !important;
+    }
+
+     header {
+    display: flex !important;
+    width: 100%;
+    margin-bottom: 15px;
+    }
+
+.trigger-digital { 
+height: 30%; 
+width: 32%;   
+top: 55%; 
+left: 10%; 
+}
+                        
+.trigger-paint { 
+height: 30%; 
+width: 32%; 
+top: 55%; 
+left: 58%; 
+}
+
+.trigger-social {
+height: 35%;
+ width: 12%;
+top: 10%;
+right: 3%;
+}
+
+    .gallery-block { 
+    grid-template-columns: 1fr 1fr; 
+    padding: 4% 5%; 
+     gap: 5%; 
+     margin-bottom: 20px; 
+    }
+                
+    .work-frame {
+    padding: 5px 5px 20px 5px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .back-to-top { 
+    right: auto;    
+    left: 15px;     
+    bottom: 20px;
+    top: auto;
+    transform: none;
+    opacity: 0.8; 
+    }
+
+    .arrow-icon 
+    {
+    width: 35px;
+     height: 50px;
+}
+
+.sekcja-naglowek-graficzny {
+    max-width: 80%; /* Zmniejszenie obrazków nagłówkowych na telefonach */
+    margin-top: 30px;
+}
+}
+</style>
+</head>
+<body id="top-of-page">
+
+    <nav class="mobile-nav">
+        <a href="#digital-heading">DIGITAL</a>
+        <a href="#paint-heading">PAINT</a>
+        <a href="#footer-contact">KONTAKT</a>
+    </nav>   
+
+<header>
+<div class="menu-wrapper">
+        <img src="Nowe%20menu.jpg" alt="Menu" class="menu-bg-img">
+        <a href="#digital-heading" class="nav-trigger trigger-digital">DIGITAL</a>
+        <a href="#paint-heading" class="nav-trigger trigger-paint">PAINT</a>
+        <a href="#footer-contact" class="nav-trigger trigger-social">KONTAKT</a>
+</div>
+    </header>
+<a href="#top-of-page" class="back-to-top" title="Powrót na górę">  
+<span class="arrow-icon"></span>
+</a>
+    
+    
+    <!-- POLE NA ILUSTRACJĘ SEKCI "DIGITAL" -->
+    <img id="digital-heading" class="sekcja-naglowek-graficzny" src="Digital%20Napis.png" alt="Digital Art">
+
+<section id="digital-art">
+<div class="gallery-block">
+  <div class="work-frame" onclick="otworzPodglad('DIGITAL/digital%20(1).jpg')">
+<img src="DIGITAL/digital%20(1).jpg" alt="Praca 1" loading="lazy">
+</div>
+ <div class="work-frame" onclick="otworzPodglad('DIGITAL/digital(2).png')">
+<img src="DIGITAL/digital(2).png" alt="Praca 2" loading="lazy">
+ </div>
+</div>
+<div class="gallery-block">
+    <div class="work-frame" onclick="otworzPodglad('DIGITAL/digital%20(3).png')">
+<img src="DIGITAL/digital%20(3).png" alt="Praca 3" loading="lazy">
+</div>
+    <div class="work-frame" onclick="otworzPodglad('DIGITAL/digital%20(4).png')">
+<img src="DIGITAL/digital%20(4).png" alt="Praca 4" loading="lazy">
+</div>
+</div>
+</section>
+
+    
+    
+    <!-- POLE NA ILUSTRACJĘ SEKCI "PAINT" -->
+    <img id="paint-heading" class="sekcja-naglowek-graficzny" src="Paint%20Napis.png" alt="Paint Art">
+
+<section id="paint-art">
+<div class="gallery-block">
+ <div class="work-frame" onclick="otworzPodglad('PAINT/paint(5).png')">
+<img src="PAINT/paint(5).png" alt="Praca 5" loading="lazy">
+</div>
+<div class="work-frame" onclick="otworzPodglad('PAINT/paint(6).png')">
+<img src="PAINT/paint(6).png" alt="Praca 6" loading="lazy">
+</div>
+</div>
+<div class="gallery-block">
+  <div class="work-frame" onclick="otworzPodglad('PAINT/paint(7).png')">
+<img src="PAINT/paint(7).png" alt="Praca 7" loading="lazy">
+</div>
+  <div class="work-frame" onclick="otworzPodglad('PAINT/paint(8).jpg')">
+<img src="PAINT/paint(8).jpg" alt="Praca 8" loading="lazy">
+</div>
+ </div>
+</section>       
+ <footer id="footer-contact" class="footer">
+ <img src="stopkaNOWA.jpg" alt="Kontakt" class="footer-img" loading="lazy">
+</footer>
+
+<div class="duzepudelko" id="pudelko07" onclick="zamknijPodgladNaTle(event)">  
+<p onclick="dlaPudelka07()"></p>
+<img id="obrazekWPodgladzie" src="" alt="Podgląd grafiki">
+    </div> 
+
+    
+ <script>   /*JAVASCRIPT*/
+function dlaPudelka07() {
+const pudelko = document.getElementById('pudelko07');
+pudelko.classList.toggle('aktywne');
+}
+
+function otworzPodglad(sciezkaObrazka) {
+const duzyObrazek = document.getElementById('obrazekWPodgladzie');
+duzyObrazek.src = sciezkaObrazka; 
+dlaPudelka07(); 
+}
+
+    function zamknijPodgladNaTle(event) {
+    if (event.target.id === 'pudelko07') {
+    dlaPudelka07();
+    }
+}
+    </script>
+        
+</body>
